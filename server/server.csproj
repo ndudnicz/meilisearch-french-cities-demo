@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MeilisearchDotnet" Version="0.0.6-preview1" />
+    <PackageReference Include="MeilisearchDotnet" Version="0.0.7" />
   </ItemGroup>
 
 </Project>
