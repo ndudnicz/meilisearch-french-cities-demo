@@ -28,8 +28,6 @@ export class AppComponent {
     if (this.query != this.lastquery) {
       const result = this.index.search(this.query);
       this.cities = (await result).hits;
-      console.log(this.cities);
-
       this.lastquery = this.query;
     }
   }
