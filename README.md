@@ -10,4 +10,4 @@ $> docker-compose up --build --force-recreate
 ```
 The front is running on [http://localhost](http://localhost)
 
-![demo gif](https://github.com/ndudnicz/meilisearch-dotnet/blob/master/src/medias/demo.gif)
+![demo gif](https://github.com/ndudnicz/meilisearch-french-cities-demo/blob/master/medias/demo.gif)
