@@ -1,0 +1,21 @@
+<div style="text-align:center; margin-top: 50px; color: rgb(61, 61, 61);">
+    <div>
+        <mat-form-field appearance="fill" style="width: 600px;">
+            <mat-label>Search a city</mat-label>
+            <input matInput [(ngModel)]="query" (keyup)="search($event)">
+        </mat-form-field>
+    </div>
+
+    <div style="text-align: justify; display: flex;width: 100%;flex-wrap: wrap;">
+        <div *ngFor="let c of cities"
+            style="flex: 1; border: 1px solid rgb(207, 207, 207); padding: 10px;min-width: 400px;">
+            <p>name : {{ c.nom }}</p>
+            <p>code : {{ c.code }}</p>
+            <p *ngIf="c.codesPostaux">Zip codes :</p>
+            <ul *ngIf="c.codesPostaux">
+                <li *ngFor="let c of c.codesPostaux">{{ c }}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
