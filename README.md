@@ -5,7 +5,7 @@ A dotnet core app will gather some french cities (~34869) from a public api and 
 Then you will be able to find the cities by typing whatever you want in the searchbar
 
 ```bash
-$> docker-compose up --build --force-recreate
+$> docker-compose up --build
 ```
 The front is running on [http://localhost](http://localhost)
 
