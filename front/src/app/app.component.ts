@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import MeiliSearch, { Index } from 'meilisearch'
+import MeiliSearch, { Index, IndexStats } from 'meilisearch'
 import { environment } from '../environments/environment';
 
 @Component({
@@ -14,6 +14,7 @@ export class AppComponent {
   ms: MeiliSearch;
   index: Index;
   cities: City[] = [];
+  numberOfDoc: number = 0;
 
   Constructor() {
   }
@@ -21,7 +22,10 @@ export class AppComponent {
   async ngOnInit() {
     this.ms = new MeiliSearch({host: environment.meiliEndpoint});
     this.index = await this.ms.getIndex("city");
-
+    setInterval(async () => {
+        const stats: IndexStats = await this.index.getStats();
+        this.numberOfDoc = stats.numberOfDocuments;
+    }, 1000);
   }
 
   async search(e) {

@@ -1,7 +1,8 @@
 <div style="text-align:center; margin-top: 50px; color: rgb(61, 61, 61);">
     <div>
+        <p><a href="https://github.com/ndudnicz/meilisearch-french-cities-demo" target="_blank"><img src="https://img.shields.io/badge/Github-meilisearch_french_cities_demo-blue"></a></p>
         <mat-form-field appearance="fill" style="width: 600px;">
-            <mat-label>Search a city</mat-label>
+            <mat-label>Search a city ({{ numberOfDoc }} indexed)</mat-label>
             <input matInput [(ngModel)]="query" (keyup)="search($event)">
         </mat-form-field>
     </div>
