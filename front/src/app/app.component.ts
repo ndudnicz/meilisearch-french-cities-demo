@@ -25,7 +25,7 @@ export class AppComponent {
     setInterval(async () => {
         const stats: IndexStats = await this.index.getStats();
         this.numberOfDoc = stats.numberOfDocuments;
-    }, 1000);
+    }, 10000);
   }
 
   async search(e) {
