@@ -34,7 +34,6 @@ namespace server
             client.BaseAddress = new Uri("https://geo.api.gouv.fr");
             client.DefaultRequestHeaders.Add("accept", "application/json");
 
-
             HttpResponseMessage res = await client.GetAsync("/departements?fields=code");
             List<Region> departements = await res.Content.ReadAsAsync<List<Region>>();
             while (true)
@@ -47,7 +46,6 @@ namespace server
                     Console.WriteLine(string.Format("Found {0} cities for region ({1}), start adding documents", cities.Count, departements[d].code));
                     int i = 0;
                     MeilisearchDotnet.Types.EnqueuedUpdate q;
-                    MeilisearchDotnet.Types.Update u;
                     for (; i + 5000 < cities.Count; i += 5000)
                     {
                         Console.WriteLine(string.Format("Adding 1000 cities [\"{0}\" .. \"{1}\"]", cities[i].nom, cities[i + 4999].nom));
@@ -59,7 +57,6 @@ namespace server
                     q = await index.AddDocuments<City>(cities.GetRange(i, cities.Count - 1));
                     await index.WaitForPendingUpdate(q.UpdateId, 30000);
                     n += cities.Count - i;
-
                 }
                 Console.WriteLine(string.Format("{0} documents added, waiting 300 seconds ...", n));
                 await Task.Delay(300000);
