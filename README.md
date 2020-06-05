@@ -5,7 +5,6 @@ A dotnet core app will gather some french cities (~34970) from a public api and 
 Then you will be able to find the cities by typing whatever you want in the searchbar
 
 ```bash
-# setup your twitter api credentials in the server/Dockerfile
 $> docker-compose up --build --force-recreate
 ```
 The front is running on [http://localhost](http://localhost)
