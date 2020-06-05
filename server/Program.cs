@@ -25,7 +25,7 @@ namespace server
         {
             await Task.Delay(3000);
             Meilisearch ms = new Meilisearch("http://meili:7700", "");
-            MeilisearchDotnet.Index index = await ms.CreateIndex(new MeilisearchDotnet.Types.IndexRequest
+            MeilisearchDotnet.Index index = await ms.GetOrCreateIndex(new MeilisearchDotnet.Types.IndexRequest
             {
                 Uid = "city",
                 PrimaryKey = "code"
