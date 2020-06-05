@@ -22,10 +22,15 @@ export class AppComponent {
   async ngOnInit() {
     this.ms = new MeiliSearch({host: environment.meiliEndpoint});
     this.index = await this.ms.getIndex("city");
+    await setStats();
     setInterval(async () => {
-        const stats: IndexStats = await this.index.getStats();
-        this.numberOfDoc = stats.numberOfDocuments;
+      await setStats();
     }, 10000);
+  }
+
+  async setStats() {
+    const stats: IndexStats = await this.index.getStats();
+    this.numberOfDoc = stats.numberOfDocuments;
   }
 
   async search(e) {
