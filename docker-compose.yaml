@@ -1,12 +1,19 @@
 version: '3.0'
 services:
-  server:
+  worker:
     build:
-      context: ./server
+      context: ./worker
+  api:
+    build:
+      context: ./api
+    ports:
+    - "5000:80"
   meili:
     image: getmeili/meilisearch:v0.10.1
     ports:
     - "7700:7700"
+    environment:
+    - MEILI_MASTER_KEY=masterKey
   front:
     build:
       context: ./front

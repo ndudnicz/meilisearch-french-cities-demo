@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  meiliEndpoint: 'http://localhost:7700'
+  meiliEndpoint: 'http://localhost:7700',
+  apiEndpoint: 'http://localhost:5000'
 };
 
 /*
